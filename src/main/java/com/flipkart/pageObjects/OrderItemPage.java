@@ -55,6 +55,7 @@ public void loginUrl() {
 }
 
 public void LoginPage() {
+	//Login To Flipkart
 	WebDriverWait wait =new WebDriverWait(driver, 10);
 	WebElement username =wait.until(ExpectedConditions.visibilityOf(username_loginPage));
 	username.sendKeys("8667837876");
@@ -65,28 +66,42 @@ public void LoginPage() {
 }
 
 public void OrderProduct() throws InterruptedException {
+	//In search bar, look for HP laptop
 	WebDriverWait wait =new WebDriverWait(driver, 10);
 	Thread.sleep(4000);
 	WebElement search =wait.until(ExpectedConditions.visibilityOf(search_homePage));
 	search.sendKeys("HP Laptop");
 	search.sendKeys(Keys.ENTER);
+	
+	//Once the search items are displayed, pick any one item from the list
 	WebElement product =wait.until(ExpectedConditions.elementToBeClickable(clickProduct));
     ((JavascriptExecutor) driver).executeScript("arguments[0].click();", product);
+
+// Handle the child window
 	ArrayList<String> windowHandles = new ArrayList<String>(driver.getWindowHandles());
 	System.out.println("size of winows"+windowHandles.size());
 	driver.switchTo().window(windowHandles.get(1));
 	String hpLaptop_productName = driver.findElement(By.xpath("//h1/span")).getText();
 	System.out.println(hpLaptop_productName);
+	
+	//Add that item to cart
 	WebElement addcart =wait.until(ExpectedConditions.elementToBeClickable(addToCart));
 	addcart.click();
+	
+	
+	//Close the child window / Get back to parent window
 	Thread.sleep(1500);
 	driver.close();
 	driver.switchTo().window(windowHandles.get(0));
+	
+	//Clear search bar
 	WebElement search_home =wait.until(ExpectedConditions.visibilityOf(search_homePage));
 	search_home.sendKeys(Keys.CONTROL + "a");
 	search_home.sendKeys(Keys.DELETE);
 	search_home.sendKeys("Redmi Mobile");
 	search_home.sendKeys(Keys.ENTER);
+	
+	////Search another item - any mobile
 	Thread.sleep(3000);
 	product.click();
 	Thread.sleep(1500);
@@ -95,10 +110,17 @@ public void OrderProduct() throws InterruptedException {
 	String mobile_productName = driver.findElement(By.xpath("//h1/span")).getText();
 	System.out.println(mobile_productName);
 	Thread.sleep(1000);
+	
+	
+	//Once the search items are displayed, pick any one random item from the list
 	addcart.click();
 	driver.close();
+	
+	//Handle the child window
 	Thread.sleep(1000);
 	driver.switchTo().window(windowHandles1.get(0));
+	
+	//Add that item to cart
 	WebElement cart =wait.until(ExpectedConditions.elementToBeClickable(cartButton));
 	((JavascriptExecutor) driver).executeScript("arguments[0].click();", cart);
 	
@@ -108,6 +130,8 @@ public void OrderProduct() throws InterruptedException {
 	int size= cartItemSize.size();
 	System.out.println("size :"+size);
 	
+	
+	//Remove the old item(hp laptop) from the cart
 	Thread.sleep(3000);
 	JavascriptExecutor js = (JavascriptExecutor) driver;
 	js.executeScript("window.scrollBy(0,250)", "");
@@ -122,6 +146,7 @@ public void OrderProduct() throws InterruptedException {
 }
 
 public String validateOrder() {
+//Validate if the last added item is in the cart	
 	String getTextFromCart = driver.findElement(By.xpath("//div/div[3]/div/div[1]/div[1]/div[1]/a")).getText();
     System.out.println("getTextFromCart :"+getTextFromCart);
 	return getTextFromCart;
@@ -130,6 +155,8 @@ public String validateOrder() {
 
 
 public void logout() throws InterruptedException {
+	
+	//Logout
 	Thread.sleep(2000);
 	WebDriverWait wait =new WebDriverWait(driver, 10);
 	WebElement logoutButton =wait.until(ExpectedConditions.visibilityOf(logout));
