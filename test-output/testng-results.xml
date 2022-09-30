@@ -2,16 +2,16 @@
 <testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2022-09-30T13:31:29 IST" name="Default suite" finished-at="2022-09-30T13:33:17 IST" duration-ms="108522">
+  <suite started-at="2022-09-30T16:17:33 IST" name="Default suite" finished-at="2022-09-30T16:18:39 IST" duration-ms="65352">
     <groups>
     </groups>
-    <test started-at="2022-09-30T13:31:29 IST" name="Default test" finished-at="2022-09-30T13:33:17 IST" duration-ms="108522">
+    <test started-at="2022-09-30T16:17:33 IST" name="Default test" finished-at="2022-09-30T16:18:39 IST" duration-ms="65352">
       <class name="com.flipkart.testCase.OrderItemTestCase">
-        <test-method is-config="true" signature="commonProperties()[pri:0, instance:com.flipkart.testCase.OrderItemTestCase@54bff557]" started-at="2022-09-30T13:31:29 IST" name="commonProperties" finished-at="2022-09-30T13:31:53 IST" duration-ms="24229" status="PASS">
+        <test-method is-config="true" signature="commonProperties()[pri:0, instance:com.flipkart.testCase.OrderItemTestCase@54bff557]" started-at="2022-09-30T16:17:34 IST" name="commonProperties" finished-at="2022-09-30T16:17:45 IST" duration-ms="11610" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- commonProperties -->
-        <test-method signature="positiveTestCase()[pri:1, instance:com.flipkart.testCase.OrderItemTestCase@54bff557]" started-at="2022-09-30T13:31:53 IST" name="positiveTestCase" finished-at="2022-09-30T13:33:17 IST" duration-ms="83996" status="PASS">
+        <test-method signature="positiveTestCase()[pri:1, instance:com.flipkart.testCase.OrderItemTestCase@54bff557]" started-at="2022-09-30T16:17:45 IST" name="positiveTestCase" finished-at="2022-09-30T16:18:39 IST" duration-ms="53586" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- positiveTestCase -->
