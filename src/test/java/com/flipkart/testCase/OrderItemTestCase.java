@@ -9,7 +9,7 @@ import com.flipkart.pageObjects.OrderItemPage;
 public class OrderItemTestCase extends BaseClass{
 OrderItemPage order;
 
-@Test(priority=1)
+@Test(priority=0)
 public void positiveTestCase() throws InterruptedException {
 	log = reports.createTest("Validate Phone is present in the Cart Page");
 	order = new OrderItemPage(driver);

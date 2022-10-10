@@ -59,7 +59,7 @@ public void screenShotAttacher(ITestResult result) throws IOException {
 	driver.close();
 }
 
-@AfterMethod()
+@AfterSuite()
 public void TearDown()  {
 reports.flush();
 }
