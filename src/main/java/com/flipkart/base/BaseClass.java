@@ -60,7 +60,7 @@ public void screenShotAttacher(ITestResult result) throws IOException {
 }
 
 @AfterSuite()
-public void TearDown()  {
+public void flushReport()  {
 reports.flush();
 }
 
