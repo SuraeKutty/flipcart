@@ -5,8 +5,11 @@
     <classes>
       <class name="com.flipkart.testCase.OrderItemTestCase">
         <methods>
+          <include name="screenShotAttacher"/>
           <include name="positiveTestCase"/>
+          <include name="reportsInitialization"/>
           <include name="commonProperties"/>
+          <include name="flushReport"/>
         </methods>
       </class> <!-- com.flipkart.testCase.OrderItemTestCase -->
     </classes>

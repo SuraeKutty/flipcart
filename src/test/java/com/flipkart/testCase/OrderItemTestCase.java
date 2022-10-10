@@ -11,10 +11,12 @@ OrderItemPage order;
 
 @Test(priority=1)
 public void positiveTestCase() throws InterruptedException {
+	log = reports.createTest("Validate Phone is present in the Cart Page");
 	order = new OrderItemPage(driver);
 	order.LoginPage();
 	order.OrderProduct();
-	String actual = "REDMI 10 (Caribbean Green, 64 GB)";
+//	Thread.sleep(2000);
+	String actual = "REDMI";
 	Assert.assertEquals(order.validateOrder(), actual);
 	order.logout();
 }

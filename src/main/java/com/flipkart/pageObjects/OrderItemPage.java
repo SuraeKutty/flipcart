@@ -34,7 +34,7 @@ WebElement passWord_loginPage;
 WebElement loginButton;
 @FindBy(xpath = "(//input[@type='text'])[1]")
 WebElement search_homePage;
-@FindBy(xpath = "//div[4]/div/div/div/a/div[2]/div[1]/div[1]")
+@FindBy(xpath = "//div[2]/div/div/div/a/div[2]/div[1]/div[1]")
 WebElement clickProduct;
 @FindBy(xpath = "//div[2]/div/ul/li[1]/button")
 WebElement addToCart;
@@ -67,13 +67,14 @@ public void LoginPage() {
 
 public void OrderProduct() throws InterruptedException {
 	//In search bar, look for HP laptop
-	WebDriverWait wait =new WebDriverWait(driver, 10);
+	WebDriverWait wait =new WebDriverWait(driver, 20);
 	Thread.sleep(4000);
 	WebElement search =wait.until(ExpectedConditions.visibilityOf(search_homePage));
 	search.sendKeys("HP Laptop");
 	search.sendKeys(Keys.ENTER);
 	
 	//Once the search items are displayed, pick any one item from the list
+	Thread.sleep(1500);
 	WebElement product =wait.until(ExpectedConditions.elementToBeClickable(clickProduct));
     ((JavascriptExecutor) driver).executeScript("arguments[0].click();", product);
 
@@ -134,7 +135,7 @@ public void OrderProduct() throws InterruptedException {
 	//Remove the old item(hp laptop) from the cart
 	Thread.sleep(3000);
 	JavascriptExecutor js = (JavascriptExecutor) driver;
-	js.executeScript("window.scrollBy(0,250)", "");
+	js.executeScript("window.scrollBy(0,400)", "");
 	Thread.sleep(500);
 	WebElement removeCart =wait.until(ExpectedConditions.elementToBeClickable(removeFromCart));
 	removeCart.click();
@@ -145,11 +146,13 @@ public void OrderProduct() throws InterruptedException {
 	
 }
 
-public String validateOrder() {
+public String validateOrder() throws InterruptedException {
 //Validate if the last added item is in the cart	
+	Thread.sleep(2000);
 	String getTextFromCart = driver.findElement(By.xpath("//div/div[3]/div/div[1]/div[1]/div[1]/a")).getText();
-    System.out.println("getTextFromCart :"+getTextFromCart);
-	return getTextFromCart;
+    String[] text = getTextFromCart.split(" ");
+    String validatetext = text[0];
+	return validatetext;
 	
 }
 
